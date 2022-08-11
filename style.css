@@ -17,9 +17,65 @@ body {
   z-index: 2;
 }
 
+/* Cabeçalho */
+#headerPage {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 30px auto 20px;
+}
+
+.titulo-header {
+  font-size: 22px;
+  letter-spacing: 0.8px;
+  color: #fefefe;
+  font-weight: 400;
+}
+
+.container-button {
+  position: relative;
+  background-color: #e9e8e9;
+  padding: 2px 22px;
+  border-radius: 20px;
+
+  transition: background 0.3s;
+}
+
+.container-button:hover {
+  background-color: #d7d7d7;
+}
+
+.icon-arrow {
+  width: 55px;
+  height: 30px;
+}
+
+.texto-voltar {
+  position: absolute;
+  top: 0.5px;
+  right: 22px;
+  font-size: 0.9rem;
+  color: #576b59;
+  font-weight: 500;
+}
+/* Fim Cabeçalho */
+
 /* Media Queries Customizado para logo fixa */
 @media (min-width: 1300px) {
   .logo-fixed {
     display: block;
+  }
+}
+
+/* Media Queries Smartphones ou menor */
+@media (max-width: 575.98px) { 
+  .container-button {
+    padding: 1px 18px;
+  }
+
+  .texto-voltar {
+    top: 0;
+    right: 18px;
   }
 }
