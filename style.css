@@ -23,11 +23,12 @@ body {
   justify-content: space-between;
   align-items: center;
 
-  margin: 30px auto 20px;
+  padding-top: 30px;
+  padding-bottom: 20px;
 }
 
 .titulo-header {
-  font-size: 22px;
+  font-size: 1.5rem;
   letter-spacing: 0.8px;
   color: #fefefe;
   font-weight: 400;
@@ -44,6 +45,7 @@ body {
 
 .container-button:hover {
   background-color: #d7d7d7;
+  text-decoration: none;
 }
 
 .icon-arrow {
@@ -61,15 +63,76 @@ body {
 }
 /* Fim Cabeçalho */
 
+/* Sub Header */
+.sub-header {
+  margin-bottom: 20px;
+}
+
+.blocos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+}
+
+.bloco {
+  background-color: white;
+  border-radius: 25px;
+  padding: 10px 20px;
+
+  display: flex;
+  align-items: center;
+}
+
+.bloco:hover {
+  text-decoration: none;
+  background-color: #eeecec;
+}
+
+.texto-bloco {
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  color: #576b59;
+  margin: 0 20px 0 0;
+}
+
+.icone-bloco {
+  width: 30px;
+  margin-top: 2px;
+}
+/* Fim Sub Header */
+
 /* Media Queries Customizado para logo fixa */
 @media (min-width: 1300px) {
+  /* Logo Visível */
   .logo-fixed {
     display: block;
   }
 }
 
+/* Media Queries Tablets ou menor */
+@media (max-width: 767.98px) {
+  /* Sub Header */
+  .blocos {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .bloco {
+    width: 70%;
+    padding: 6px 13px;
+    justify-content: space-between;
+  }
+
+  .texto-bloco {
+    font-size: 1rem;
+  }
+  /* Fim Sub Header */
+}
+
 /* Media Queries Smartphones ou menor */
 @media (max-width: 575.98px) { 
+  /* Cabeçalho */
   .container-button {
     padding: 1px 18px;
   }
@@ -78,4 +141,11 @@ body {
     top: 0;
     right: 18px;
   }
+  /* Fim Cabeçalho */
+
+  /* Sub Header */
+  .bloco {
+    width: 95%;
+  }
+  /* Fim Sub Header */
 }
