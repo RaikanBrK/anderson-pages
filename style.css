@@ -102,6 +102,30 @@ body {
 }
 /* Fim Sub Header */
 
+/* Tabela */
+.container-table {
+  margin-top: 40px;
+}
+
+.table-custom {
+  background-color: white;
+  border-radius: 20px 20px 0 0;
+  text-align: center;
+}
+
+.head-custom th {
+  color: #526754;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+}
+
+.table-custom tbody tr:nth-child(2n - 1) {
+  background-color: #b8cbba;
+}
+/* Fim tabela */
+
 /* Media Queries Customizado para logo fixa */
 @media (min-width: 1300px) {
   /* Logo Visível */
