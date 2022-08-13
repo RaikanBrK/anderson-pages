@@ -65,7 +65,7 @@ body {
 
 /* Sub Header */
 .sub-header {
-  margin-bottom: 20px;
+  padding-bottom: 20px;
 }
 
 .blocos {
@@ -104,13 +104,27 @@ body {
 
 /* Tabela */
 .container-table {
-  margin-top: 40px;
+  padding-top: 40px;
+}
+
+.table-responsive {
+  position: relative;
+  overflow-y: hidden;
+}
+
+.continuacao-tabela {
+  position: absolute;
+  background: url('assets/bg-tabela.png');
+  width: 100%;
+  height: 524px;
+  z-index: -1;
 }
 
 .table-custom {
   background-color: white;
   border-radius: 20px 20px 0 0;
   text-align: center;
+  margin: 0;
 }
 
 .head-custom th {
