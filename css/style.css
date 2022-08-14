@@ -181,7 +181,7 @@ a.bloco:hover {
     gap: 15px;
   }
 
-  .bloco {
+  .bloco.icone {
     width: 70%;
     padding: 6px 13px;
     justify-content: space-between;
