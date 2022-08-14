@@ -1,0 +1,54 @@
+#navegacaoBlocos {
+  padding-top: 70px;
+}
+
+.sub-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding-top: 20px;
+
+  color: white;
+}
+
+.title-container {
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 0.8px;
+
+  margin: 0;
+}
+
+.icone-title-container {
+  width: 40px;
+  margin-left: 30px;
+  position: relative;
+  top: 2px;
+}
+
+@media (min-width: 768px) {
+  .blocos {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .bloco {
+    width: 50%;
+  }
+}
+
+@media (max-width: 767.98px) {
+  #navegacaoBlocos {
+    padding-top: 50px;
+  }
+
+  .blocos {
+    gap: 20px;
+  }
+
+  .bloco {
+    width: 90%;
+    padding: 15px 15px;
+  }
+}
