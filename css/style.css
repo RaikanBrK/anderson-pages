@@ -86,7 +86,7 @@ body {
   align-items: center;
 }
 
-.bloco:hover {
+a.bloco:hover {
   text-decoration: none;
   background-color: #eeecec;
 }
