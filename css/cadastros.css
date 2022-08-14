@@ -1,7 +1,4 @@
-#navegacaoBlocos {
-  padding-top: 70px;
-}
-
+/* Sobreposição */
 .sub-header {
   display: flex;
   justify-content: center;
@@ -10,6 +7,12 @@
   padding-top: 20px;
 
   color: white;
+}
+/* Fim Sobreposição */
+
+/* Navegação em Blocos */
+#navegacaoBlocos {
+  padding-top: 70px;
 }
 
 .title-container {
@@ -26,8 +29,11 @@
   position: relative;
   top: 2px;
 }
+/* Fim Navegação em Blocos */
 
+/* Media Queries para tablets ou maior */
 @media (min-width: 768px) {
+  /* Navegação em Blocos */
   .blocos {
     flex-direction: column;
     gap: 25px;
@@ -36,9 +42,12 @@
   .bloco {
     width: 50%;
   }
+  /* Fim Navegação em Blocos */
 }
 
+/* Media Queries para SmartPhones Grandes ou menor */
 @media (max-width: 767.98px) {
+  /* Sobreposição */
   #navegacaoBlocos {
     padding-top: 50px;
   }
@@ -51,4 +60,5 @@
     width: 90%;
     padding: 15px 15px;
   }
+  /* Fim Sobreposição */
 }
