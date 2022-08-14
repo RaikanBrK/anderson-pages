@@ -1,0 +1,29 @@
+#formulario {
+  padding-bottom: 40px;
+}
+
+.label-form {
+  color: white;
+}
+
+.btn-light-custom {
+  display: block;
+  margin: auto;
+
+  font-weight: 600;
+
+  border-radius: 20px;
+
+  background-color: #f2f2f2;
+  color: #7e8fa1;
+
+  padding: 10px 50px;
+
+  margin-top: 20px;
+  transition: background 0.4s, color 0.4s;
+}
+
+.btn-light-custom:hover {
+  background: #dcdcdc;
+  color: #525269;
+}
