@@ -1,0 +1,104 @@
+/* Sobreposição */
+#formulario .bloco {
+  padding: 7px 20px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+
+  justify-content: space-around;
+}
+
+/* Formulário */
+.form-check {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.form-check-label {
+  padding: 1px;
+  border: 2px solid transparent;  
+}
+
+#formulario .form-check-input:checked ~ .form-check-label {
+  border: 2px solid #9650ff;
+  border-radius: 6px;
+}
+
+#formulario .form-check-input:checked ~ .line-color {
+  background-color: #e4d17d;
+}
+
+.radio-color input {
+  display: none;
+}
+
+#formulario .color {
+  cursor: pointer;
+}
+
+.color {
+  position: relative;
+
+  width: 35px;
+  height: 35px;
+
+  border-radius: 5px;
+
+  border-width: 1.5px;
+  border-style: solid;
+}
+
+.color-1 {
+  background-color: #2d8cff;
+  border-color: #2d83eb;
+}
+
+.color-2 {
+  background-color: #526754;
+  border-color: #839184;
+}
+
+.color-3 {
+  background-color: #60d66a;
+  border-color: #56b963;
+}
+
+.color-4 {
+  background-color: #b8cbba;
+  border-color: #a3b5a9;
+}
+
+.color-5 {
+  background-color: #cc0000;
+  border-color: #b11013;
+}
+
+.color-6 {
+  background-color: #e9e8e9;
+  border-color: #d5d8da;
+}
+
+.line-color {
+  width: 90%;
+  background-color: #f1f3f3;
+  height: 1px;
+
+  max-width: 35px;
+
+  margin-top: 5px;
+}
+
+/* Media Queries Smartphone ou menor */
+@media (max-width: 575.98px) {
+  .color {
+    width: 30px;
+    height: 30px;
+  }
+
+  #formulario .bloco {
+    padding: 3px 7px;
+  } 
+}
