@@ -128,6 +128,13 @@ function tabelaFake(alturaMinimaTabela) {
     alturaTabelaFake += linhaRegistroFakeBg;
   }
 
+  /**
+   * Se a altura da tabela fake for maior que 0 adicionar classe de ativo
+   */
+  if (alturaTabelaFake > 0) {
+    tabelaCustomizada.addClass('active-tabela-fake');
+  }
+
   /** 
    * Adicionando as propriedades css
    */

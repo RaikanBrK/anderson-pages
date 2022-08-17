@@ -120,6 +120,8 @@ a.bloco:hover {
   width: 100%;
   height: 524px;
   z-index: -1;
+
+  border-radius: 0 0 20px 20px;
 }
 
 .tabela-customizada {
@@ -127,6 +129,10 @@ a.bloco:hover {
   border-radius: 20px;
   text-align: left;
   margin: 0;
+}
+
+.tabela-customizada.active-tabela-fake {
+  border-radius: 20px 20px 0 0;
 }
 
 .tabela-customizada thead th {
