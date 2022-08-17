@@ -6,17 +6,6 @@ body {
   background-color: #526754;
 }
 
-/* Logo Fixa */
-.logo-fixed {
-  display: none;
-
-  width: 85px;
-  position: fixed;
-  bottom: 15px;
-  right: 15px;
-  z-index: 2;
-}
-
 /* Cabeçalho */
 #headerPage {
   display: flex;
@@ -135,7 +124,7 @@ a.bloco:hover {
 
 .tabela-customizada {
   background-color: white;
-  border-radius: 20px 20px 0 0;
+  border-radius: 20px;
   text-align: left;
   margin: 0;
 }
@@ -165,13 +154,31 @@ a.bloco:hover {
 }
 /* Fim tabela */
 
-/* Media Queries Customizado para logo fixa */
-@media (min-width: 1300px) {
-  /* Logo Visível */
-  .logo-fixed {
-    display: block;
-  }
+/* Rodapé */
+footer {
+  padding: 5px;
+  background-color: #292369;
+
+  margin-top: 25px;
 }
+
+#footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text-footer {
+  color: #eee7e7f7;
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.logo-footer {
+  width: 85px;
+}
+
+/* Fim Rodapé */
 
 /* Media Queries Tablets ou menor */
 @media (max-width: 767.98px) {
@@ -182,7 +189,7 @@ a.bloco:hover {
   }
 
   .bloco.icone {
-    width: 70%;
+    width: 90%;
     padding: 6px 13px;
     justify-content: space-between;
   }
