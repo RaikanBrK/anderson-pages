@@ -145,6 +145,16 @@ function tabelaFake(alturaMinimaTabela) {
   });
 }
 
+function larguraTheadFixed() {
+  $('.thead-fixed').width($('.table-responsive').width());
+
+  $('.thead-fixed tr th').each((index, element) => {
+    $(element).width($($('.thead-customizada tr th')[index]).width());
+  }); 
+
+  scroll();
+}
+
 /**
  * Criando tabela Fake e seus requisitos
  */
@@ -157,6 +167,8 @@ function init() {
   let alturaMinimaTabela = adicionandoTamanhoMinimoTabela();
 
   tabelaFake(alturaMinimaTabela);
+
+  larguraTheadFixed();
 }
 
 /**
@@ -177,3 +189,25 @@ $(document).ready(() => {
  * Ajustando tabela fake ao alterar a tela do usuário
  */
 $(window).resize(init);
+
+$(window).scroll(() => {
+
+  let scrollBody = $(document).scrollTop();
+  let thead = $('.thead-customizada');
+  let tabelaTop = $('.tabela-customizada').offset().top;
+
+  if (scrollBody >= tabelaTop && $('.thead-fixed').length == 0) {
+    thead.clone().addClass('thead-fixed').removeClass('thead-customizada').insertAfter(thead);
+    larguraTheadFixed();
+  } else if (scrollBody < tabelaTop) {
+    $('.thead-fixed').remove();
+  }
+});
+
+function scroll() {
+  $('.thead-fixed').scrollLeft($('.table-responsive').scrollLeft());
+}
+
+$('.table-responsive').scroll(() => {
+  scroll();
+})
