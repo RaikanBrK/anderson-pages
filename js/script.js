@@ -202,6 +202,17 @@ $(window).scroll(() => {
   } else if (scrollBody < tabelaTop) {
     $('.thead-fixed').remove();
   }
+
+  let ultimoTr = $('.tabela-customizada tr')[$('.tabela-customizada tr').length - 1];
+
+  if (scrollBody >= $(ultimoTr).offset().top - $('.thead-fixed').height() && $('.thead-fixed').hasClass('position-absolute') == false) {
+    $('.thead-fixed').addClass('position-absolute')
+
+    $('.thead-fixed').css('top', $(document).scrollTop() - $(".tabela-customizada").offset().top);
+  } else if(scrollBody < $(ultimoTr).offset().top - $('.thead-fixed').height()) {
+    $('.thead-fixed').removeClass('position-absolute')
+    $('.thead-fixed').css('top', 0);
+  }
 });
 
 function scroll() {
