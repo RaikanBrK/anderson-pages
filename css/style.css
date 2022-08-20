@@ -135,9 +135,12 @@ a.bloco:hover {
 .tabela-customizada {
   position: relative;
   background-color: white;
-  border-radius: 20px;
   text-align: left;
   margin: 0;
+
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
 }
 
 .tabela-customizada.active-tabela-fake {
@@ -158,6 +161,7 @@ a.bloco:hover {
 .thead-fixed {
   box-shadow: 0px 1px 3px #00000052;
   overflow-x: hidden;
+  z-index: 10;
 }
 
 .coluna-grande {
@@ -180,8 +184,16 @@ a.bloco:hover {
   color: #b12e2b;
 }
 
-.tabela-customizada tbody tr:nth-child(2n - 1) {
+.tabela-customizada tbody tr:nth-child(2n - 1) > * {
   background-color: #b8cbba;
+}
+
+.tabela-customizada:not(.active-tabela-fake) tbody tr:last-child > *:first-child {
+  border-radius: 0 0 0 20px;
+}
+
+.tabela-customizada:not(.active-tabela-fake) tbody tr:last-child td:last-child {
+  border-radius: 0 0 20px 0;
 }
 /* Fim tabela */
 

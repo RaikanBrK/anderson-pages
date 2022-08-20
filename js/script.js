@@ -111,6 +111,11 @@ function tabelaFake(alturaMinimaTabela) {
    * Altura que a tabela fake deve preencher para chegar até o fim da tela
    */
   let alturaTabelaFake = alturaMinimaTabela - alturaTabela;
+  
+  /**
+   * Altura visível da tabela fake
+   */
+  let alturaVisivelTabelaFake = alturaTabelaFake;
 
   /** 
    * Verificando se a quantidade de registros é impar
@@ -122,7 +127,7 @@ function tabelaFake(alturaMinimaTabela) {
     /**
      * Quantidade de px de cada linha do background da tabela fake
      */
-    let linhaRegistroFakeBg = 48;
+    var linhaRegistroFakeBg = 48;
 
     /**
      * Para uma quantidade impar de registros
@@ -136,17 +141,21 @@ function tabelaFake(alturaMinimaTabela) {
      * Aumentando altura da tabela fake para preencher a perda do top
      */
     alturaTabelaFake += linhaRegistroFakeBg;
+
+    alturaVisivelTabelaFake -= linhaRegistroFakeBg;
   }
 
   /**
-   * Se a altura da tabela fake for maior que 0 adicionar classe de ativo
+   * Se a altura da tabela fake for maior que 5 adicionar classe de ativo se não não exibir tabela fake
    */
-  if (alturaTabelaFake > 0) {
+   if (alturaVisivelTabelaFake > 5) {
     tabelaCustomizada.addClass('active-tabela-fake');
+  } else {
+    alturaTabelaFake = 0;
+    tabelaCustomizada.removeClass('active-tabela-fake');
   }
 
-  // Exibir tabela fake apenas com 20 ou mais de altura
-  alturaTabelaFake = alturaTabelaFake < 15 ? 0 : alturaTabelaFake;
+  console.log(alturaTabelaFake, alturaVisivelTabelaFake);
 
   /** 
    * Adicionando as propriedades css
