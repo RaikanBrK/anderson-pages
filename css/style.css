@@ -146,11 +146,11 @@ a.bloco:hover {
 .thead-fixed {
   position: fixed;
   top: 0px;
+  background-color: white;
 }
 
 .thead-customizada,
 .thead-fixed {
-  background-color: white;
   box-shadow: 0px 1px 3px #00000052;
   overflow-x: hidden;
 }
@@ -182,12 +182,10 @@ a.bloco:hover {
 
 /* Rodapé */
 footer {
-  
   padding: 5px;
   background-color: #292369;
   
   margin-top: 25px;
-  margin-top: 150vh;
 }
 
 #footer-container {
