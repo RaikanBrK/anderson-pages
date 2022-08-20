@@ -145,6 +145,9 @@ function tabelaFake(alturaMinimaTabela) {
     tabelaCustomizada.addClass('active-tabela-fake');
   }
 
+  // Exibir tabela fake apenas com 20 ou mais de altura
+  alturaTabelaFake = alturaTabelaFake < 15 ? 0 : alturaTabelaFake;
+
   /** 
    * Adicionando as propriedades css
    */
@@ -167,7 +170,7 @@ function atualizarScrollTheadFixo() {
   let tabelaResponsivaScrollX = tabelaResponsiva.scrollLeft();
 
   // Setando scroll da tabela para o scroll do cabeçalho fixo da tabela
-  $('.thead-fixed').scrollLeft(tabelaResponsivaScrollX);
+  $('.thead-fixed').scrollLeft(tabelaResponsivaScrollX * 0.8);
 }
 
 /**
@@ -186,8 +189,10 @@ function atualizarLarguraTheadFixed() {
    */
   let theadFixo = $('.thead-fixed');
 
-  // Atualizando largura do cabeçalho fixo para o a mesma largura da área da tabela
-  theadFixo.width(larguraDaTabela);
+  // Atualizando largura do cabeçalho fixo para o a mesma largura da área da tabela se o cabeçalho estiver fixo
+  if (theadFixo.hasClass('position-absolute') == false) {
+    theadFixo.width(larguraDaTabela);
+  }
 
   // Atualizando a largura dos elementos do cabeçalho fixo para a mesma largura do cabeçalho da tabela
   theadFixo.find('tr th').each((index, element) => {
@@ -268,12 +273,17 @@ function manterTheadFinalScroll(scrollBody) {
     theadFixo.addClass('position-absolute')
 
     // Mantendo o topo do cabeçalho fixo da tabela
-    theadFixo.css('top', scrollBody - $('.tabela-customizada').offset().top);
+    theadFixo.css({
+      'top': scrollBody - $('.tabela-customizada').offset().top,
+      'width': '100%',
+    });
 
   } else if(scrollBody < alturaTheadUltimoRegistro) {
     // Voltando o cabeçalho para fixo
     theadFixo.removeClass('position-absolute')
     theadFixo.css('top', 0);
+
+    atualizarLarguraTheadFixed();
   }
 }
 
@@ -302,7 +312,9 @@ function initScroll() {
    */
   let scrollBody = $(document).scrollTop();
   
-  fixarThead(scrollBody);
+  if ($('.tabela-fake').height() <= 0) {
+    fixarThead(scrollBody);
+  }
   manterTheadFinalScroll(scrollBody);
 }
 

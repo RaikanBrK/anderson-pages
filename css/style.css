@@ -133,6 +133,7 @@ a.bloco:hover {
 }
 
 .tabela-customizada {
+  position: relative;
   background-color: white;
   border-radius: 20px;
   text-align: left;
@@ -147,6 +148,10 @@ a.bloco:hover {
   position: fixed;
   top: 0px;
   background-color: white;
+}
+
+.thead-fixed.position-absolute {
+  width: 100%;
 }
 
 .thead-customizada,
