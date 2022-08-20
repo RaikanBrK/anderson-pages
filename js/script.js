@@ -30,6 +30,16 @@ const conteudos = $('.conteudo');
 var alturaConteudos = 0;
 
 /**
+ * Área da Tabela
+ */
+const tabelaResponsiva = $('.table-responsive');
+
+/**
+ * Cabeçalho da tabela
+ */
+const theadCustomizada = $('.thead-customizada');
+
+/**
  * Setando a largura e altura da tela do usuário nas respectivas variáveis
  */
 function setandoTamanhoDaTela() {
@@ -145,20 +155,132 @@ function tabelaFake(alturaMinimaTabela) {
   });
 }
 
-function larguraTheadFixed() {
-  $('.thead-fixed').width($('.table-responsive').width());
+/**
+ * Atualizar o scroll horizontal do cabeçalho fixo da tabela com base no scroll horizontal da tabela
+ * 
+ * Ao mover o scroll da tabela atualizar o scroll do cabeçalho da tabela também
+ */
+function atualizarScrollTheadFixo() {
+  /**
+   * Scroll horizontal da área da tabela
+   */
+  let tabelaResponsivaScrollX = tabelaResponsiva.scrollLeft();
 
-  $('.thead-fixed tr th').each((index, element) => {
-    $(element).width($($('.thead-customizada tr th')[index]).width());
+  // Setando scroll da tabela para o scroll do cabeçalho fixo da tabela
+  $('.thead-fixed').scrollLeft(tabelaResponsivaScrollX);
+}
+
+/**
+ * Atualizando largura do cabeçalho fixo com base na tabela
+ * 
+ * E atualizando seus elementos com base no cabeçalho da tabela (cabeçalho não fixado)
+ */
+function atualizarLarguraTheadFixed() {
+  /**
+   * Largura da área da tabela
+   */
+  let larguraDaTabela = tabelaResponsiva.width();
+
+  /**
+   * Cabeçalho fixo da tabela
+   */
+  let theadFixo = $('.thead-fixed');
+
+  // Atualizando largura do cabeçalho fixo para o a mesma largura da área da tabela
+  theadFixo.width(larguraDaTabela);
+
+  // Atualizando a largura dos elementos do cabeçalho fixo para a mesma largura do cabeçalho da tabela
+  theadFixo.find('tr th').each((index, element) => {
+    let larguraDoTh = $(theadCustomizada.find('tr th')[index]).width();
+    $(element).width(larguraDoTh);
   }); 
 
-  scroll();
+  // Atualizar Scroll
+  atualizarScrollTheadFixo();
+}
+
+function fixarThead(scrollBody) {
+  /**
+   * Altura da tabela até o inicio da página
+   */
+  let tabelaTop = $('.tabela-customizada').offset().top;
+
+  /** 
+   * Verificando se o scroll da página passou da tabela 
+   * E se a tabela fixa não existe
+   */
+  if (scrollBody >= tabelaTop && $('.thead-fixed').length == 0) {
+    // Copiando elemento do cabeçalho da tabela
+    let theadClone = theadCustomizada.clone();
+
+    // Adicionando classe de fixar o cabeçalho e removendo classe do cabeçalho padrão da tabela
+    theadClone = theadClone.addClass('thead-fixed').removeClass('thead-customizada')
+
+    // Inserindo o cabeçalho fixo após o cabeçalho padrão da tabela
+    theadClone.insertAfter(theadCustomizada);
+
+    // Atualizando largura da tabela fixa
+    atualizarLarguraTheadFixed();
+
+  } else if (scrollBody < tabelaTop) {
+    // Se o scroll da página não passou a tabela
+
+    // Removendo tabela fixa caso exista
+    $('.thead-fixed').remove();
+  }
+}
+
+function manterTheadFinalScroll(scrollBody) {
+  /**
+   * Cabeçalho fixo da tabela
+   */
+  let theadFixo = $('.thead-fixed');
+
+  /**
+   * Todos os registros da tabela
+   */
+  let registrosTabela = $('.tabela-customizada tr');
+
+  // Se não hover registros retornar
+  if (registrosTabela.length <= 0) {
+    return false;
+  }
+  
+  /**
+   * Top do último registro da tabela até o inicio da página
+   */
+  let ultimoRegistroTop = $(registrosTabela[registrosTabela.length - 1]).offset().top;
+
+  /**
+   * Altura do top para deixar apenas o cabeçalho e o último registro visível
+   * 
+   * Top do último registro - a altura do cabeçalho fixo da tabela
+   */
+  let alturaTheadUltimoRegistro = ultimoRegistroTop - theadFixo.height();
+
+  /** 
+   * Verificando se o scroll da página passou a altura do topo do cabeçalho com o último registro
+   * 
+   * E verificando se o cabeçalho fixo não tem a classe, para não entrar novamente
+   */
+  if (scrollBody >= alturaTheadUltimoRegistro && theadFixo.hasClass('position-absolute') == false) {
+    // Adicionando classe para mudar o position
+    theadFixo.addClass('position-absolute')
+
+    // Mantendo o topo do cabeçalho fixo da tabela
+    theadFixo.css('top', scrollBody - $('.tabela-customizada').offset().top);
+
+  } else if(scrollBody < alturaTheadUltimoRegistro) {
+    // Voltando o cabeçalho para fixo
+    theadFixo.removeClass('position-absolute')
+    theadFixo.css('top', 0);
+  }
 }
 
 /**
  * Criando tabela Fake e seus requisitos
  */
-function init() {
+function initTabela() {
   setandoTamanhoDaTela();
 
   alturaConteudos = 0;
@@ -168,7 +290,20 @@ function init() {
 
   tabelaFake(alturaMinimaTabela);
 
-  larguraTheadFixed();
+  atualizarLarguraTheadFixed();
+}
+
+/**
+ * Atualizar ao rolar o scroll do navegador
+ */
+function initScroll() {
+  /**
+   * Scroll da página
+   */
+  let scrollBody = $(document).scrollTop();
+  
+  fixarThead(scrollBody);
+  manterTheadFinalScroll(scrollBody);
 }
 
 /**
@@ -182,43 +317,14 @@ $(document).ready(() => {
   $('.container-tabela').fadeTo(1000, 1);
 
   // Criando tabela fake
-  init();
+  initTabela();
 });
 
-/** 
- * Ajustando tabela fake ao alterar a tela do usuário
- */
-$(window).resize(init);
+// Ajustando tabela fake ao alterar a tela do usuário
+$(window).resize(initTabela);
 
-$(window).scroll(() => {
+// Detectar mudanças no scroll da tabela para atualizar o scroll do thead fixo
+$('.table-responsive').scroll(atualizarScrollTheadFixo);
 
-  let scrollBody = $(document).scrollTop();
-  let thead = $('.thead-customizada');
-  let tabelaTop = $('.tabela-customizada').offset().top;
-
-  if (scrollBody >= tabelaTop && $('.thead-fixed').length == 0) {
-    thead.clone().addClass('thead-fixed').removeClass('thead-customizada').insertAfter(thead);
-    larguraTheadFixed();
-  } else if (scrollBody < tabelaTop) {
-    $('.thead-fixed').remove();
-  }
-
-  let ultimoTr = $('.tabela-customizada tr')[$('.tabela-customizada tr').length - 1];
-
-  if (scrollBody >= $(ultimoTr).offset().top - $('.thead-fixed').height() && $('.thead-fixed').hasClass('position-absolute') == false) {
-    $('.thead-fixed').addClass('position-absolute')
-
-    $('.thead-fixed').css('top', $(document).scrollTop() - $(".tabela-customizada").offset().top);
-  } else if(scrollBody < $(ultimoTr).offset().top - $('.thead-fixed').height()) {
-    $('.thead-fixed').removeClass('position-absolute')
-    $('.thead-fixed').css('top', 0);
-  }
-});
-
-function scroll() {
-  $('.thead-fixed').scrollLeft($('.table-responsive').scrollLeft());
-}
-
-$('.table-responsive').scroll(() => {
-  scroll();
-})
+// Detectar mudanças no scroll da página
+$(window).scroll(initScroll);
