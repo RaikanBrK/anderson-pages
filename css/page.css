@@ -6,6 +6,10 @@
   color: #f1f6f6;
 }
 
+#formulario .form-group {
+  margin-top: 7px;
+}
+
 .btn-light-custom {
   display: block;
   margin: auto;
