@@ -168,6 +168,10 @@ a.bloco:hover {
   min-width: 120px;
 }
 
+.coluna-extra-grande {
+  min-width: 200px;
+}
+
 .tabela-customizada thead th {
   color: #526754;
   font-size: 20px;
@@ -184,16 +188,24 @@ a.bloco:hover {
   color: #b12e2b;
 }
 
-.tabela-customizada tbody tr:nth-child(2n - 1) > * {
+.tabela-customizada tbody tr:nth-child(2n - 1) > *,
+.tabela-customizada tfoot tr:nth-child(2n - 1) > * {
   background-color: #b8cbba;
 }
 
-.tabela-customizada:not(.active-tabela-fake) tbody tr:last-child > *:first-child {
+.tabela-customizada:not(.active-tabela-fake) .tbody-customizada tr:last-child > *:first-child {
   border-radius: 0 0 0 20px;
 }
 
-.tabela-customizada:not(.active-tabela-fake) tbody tr:last-child td:last-child {
+.tabela-customizada:not(.active-tabela-fake) .tbody-customizada tr:last-child td:last-child {
   border-radius: 0 0 20px 0;
+}
+
+.tabela-customizada tfoot {
+  box-shadow: 0 -1px 1px #0000003d;
+  position: sticky;
+  bottom: 0;
+  background-color: white;
 }
 /* Fim tabela */
 

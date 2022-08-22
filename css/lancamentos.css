@@ -1,0 +1,122 @@
+/* Sobreposição */
+.sub-header {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.table-responsive {
+  overflow-y: auto;
+  max-height: 90vh;
+}
+
+.thead-customizada {
+  position: sticky;
+  top: 0;
+  background-color: #ffffff;
+}
+
+.img-lancamentos {
+  width: 35px;
+}
+
+#notaFiscal {
+  display: none;
+}
+
+.form-group-nota-fiscal {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+
+  gap: 4px;
+}
+
+.form-group-nota-fiscal:hover .text-nota-fiscal {
+  color: #dcdada;
+}
+
+.img-upload-nota-fiscal {
+  width: 45px;
+}
+
+.text-nota-fiscal {
+  font-size: 0.95rem;
+  color: #fafaf8;
+}
+
+.tabela-customizada .action {
+  width: 28px;
+}
+
+.tabela-customizada .edit {
+  width: 20px;
+  float: right;
+  margin-right: 20%;
+  cursor: pointer;
+}
+
+.cor-1 {
+  color: #332f6f;
+}
+
+.cor-2 {
+  color: #302a6e;
+}
+
+.cor-3 {
+  color: #f388ca;
+}
+
+.cor-4 {
+  color: #d32424;
+}
+
+.cor-5 {
+  color: #cc5143;
+}
+
+.cor-data {
+  color: #2a2469;
+}
+
+.cor-valor-orcado {
+  color: #3a3873;
+}
+
+.cor-valor-realizado-1 {
+  color: #2a256a;
+}
+
+.cor-valor-realizado-2 {
+  color: #cf0f0f;
+}
+
+.cor-valor-realizado-3 {
+  color: #28b33f;
+}
+
+.cor-notal-fiscal {
+  color: #4999f1;
+}
+
+.cor-foot {
+  color: #2a246a;
+}
+
+.cor-foot-2 {
+  color: #cb0d0c;
+}
+
+tfoot {
+  text-transform: uppercase;
+}
+
+@media (max-width: 991.98px) {
+  .tabela-customizada .edit {
+    margin-right: 10px;
+  }
+}

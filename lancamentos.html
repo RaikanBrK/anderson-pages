@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap v4.5 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+  <!-- Estilização -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/page.css">
+  <link rel="stylesheet" href="css/lancamentos.css">
+
+  <title>Tela Lançamentos</title>
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header class="conteudo">
+    <div class="container" id="headerPage">
+      <!-- Título -->
+      <h1 class="titulo-header">Tela Lançamentos</h1>
+
+      <!-- Botão para Voltar -->
+      <a href="cadastros.html" class="container-button">
+        <img src="images/arrow.png" alt="Ícone flecha" class="icon-arrow" />
+        <span class="texto-voltar">voltar</span>
+      </a>
+    </div>
+  </header>
+  <!-- Fim Cabeçalho -->
+
+  <!-- Sub Header -->
+  <section class="conteudo">
+    <div class="container sub-header">
+      <div class="blocos">
+        <div class="bloco">
+          <h5 class="texto-bloco">Reforma da P2</h5>
+        </div>
+      </div>
+      <img src="images/lancamentos.png" alt="" class="img-lancamentos">
+    </div>
+  </section>
+  <!-- Fim Sub Header -->
+
+  <!-- Formulário -->
+  <section class="conteudo">
+    <div class="container" id="formulario">
+      <form action="#" method="">
+        <div class="form-row justify-content-center">
+          <div class="form-group col-sm-9 col-md-3">
+            <label for="lancamentos" class="label-form">Lançamentos</label>
+            <input type="text" class="form-control" id="lancamentos" name="lancamentos" placeholder="">
+          </div>
+          <div class="form-group col-sm-9 col-md-3">
+            <label for="classeDoCusto" class="label-form">Classe do Custo</label>
+            <input type="text" class="form-control" id="classeDoCusto" name="classeDoCusto" placeholder="">
+          </div>
+          <div class="form-group col-sm-9 col-md-3">
+            <label for="valorOrcado" class="label-form">Valor Orçado</label>
+            <input type="text" class="form-control" id="valorOrcado" name="valorOrcado" placeholder="">
+          </div>
+          <div class="form-group col-sm-9 col-md-3 d-flex justify-content-center">
+            <input type="file" name="notaFiscal" id="notaFiscal">
+            <label for="notaFiscal" class="form-group-nota-fiscal">
+              <img src="images/upload.png" alt="" class="img-upload-nota-fiscal">
+              <span class="text-nota-fiscal">Upload de Nota Fiscal</span>
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-light-custom">Cadastrar</button>
+      </form>
+    </div>
+  </section>
+  <!-- Fim Formulário -->
+
+  <!-- Tabela -->
+  <main class="full-content">
+    <!-- Loading para carregar a tabela -->
+    <div class="loading">
+      <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+
+    <div class="container container-tabela">
+      <div class="table-responsive">
+        <table class="table table-borderless tabela-customizada">
+          <thead class="thead-customizada">
+            <tr>
+              <th scope="col" class="coluna-grande">Lançamento</th>
+              <th scope="col">Data</th>
+              <th scope="col">Valor Orçado</th>
+              <th scope="col" class="coluna-extra-grande">Valor Realizado</th>
+              <th scope="col">Nota Fiscal</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td scope="row" class="cor-1">Mão de Obra Empreiteiro</td>
+              <td class="cor-data">01/08/2022</td>
+              <td class="cor-valor-orcado">R$ 150.000,00</td>
+              <td class="cor-valor-realizado-1">
+                <span>R$ 150.000,00</span>
+                <img src="./images/edit.png" alt="Ícone Editar" class="edit">
+              </td>
+              <td class="cor-notal-fiscal">NF. 2500154</td>
+              <td><img src="./images/circle-check.png" alt="Ícone de Sucesso" class="action"></td>
+            </tr>
+            <tr>
+              <td scope="row" class="cor-2">Infra Estrutura CFTV</td>
+              <td class="cor-data">01/08/2022</td>
+              <td class="cor-valor-orcado">R$ 10.000,00</td>
+              <td class="cor-valor-realizado-2">
+                <span>R$ 11.200,00</span>
+                <img src="./images/edit.png" alt="Ícone Editar" class="edit">
+              </td>
+              <td class="cor-notal-fiscal">NF. 132564</td>
+              <td><img src="./images/circle-check.png" alt="Ícone de Sucesso" class="action"></td>
+            </tr>
+            <tr>
+              <td scope="row" class="cor-3">Plantação de Grama Talude</td>
+              <td class="cor-data">05/08/2022</td>
+              <td class="cor-valor-orcado">R$ 4.563,00</td>
+              <td class="cor-valor-realizado-2">
+                R$ 4.863,00
+                <img src="./images/edit.png" alt="Ícone Editar" class="edit">
+              </td>
+              <td class="cor-notal-fiscal">NF. 324</td>
+              <td><img src="./images/circle-check.png" alt="Ícone de Sucesso" class="action"></td>
+            </tr>
+            <tr>
+              <td scope="row" class="cor-4">Assentamento de Brita</td>
+              <td class="cor-data">21/08/2022</td>
+              <td class="cor-valor-orcado">R$ 45.323,00</td>
+              <td class="cor-valor-realizado-3">
+                R$ 44.300,00
+                <img src="./images/edit.png" alt="Ícone Editar" class="edit">
+              </td>
+              <td class="cor-notal-fiscal">NF. 832</td>
+              <td><img src="./images/circle-check.png" alt="Ícone de Sucesso" class="action"></td>
+            </tr>
+            <tr>
+              <td scope="row" class="cor-5">Asfaltamento</td>
+              <td class="cor-data">02/08/2022</td>
+              <td class="cor-valor-orcado">R$ 55.000,00</td>
+              <td>
+                ...
+                <img src="./images/edit.png" alt="Ícone Editar" class="edit">
+              </td>
+              <td></td>
+              <td><img src="./images/circle-x.png" alt="Ícone de Sucesso" class="action"></td>
+            </tr>
+            <tr>
+              <td scope="row" class="cor-5">Asfaltamento</td>
+              <td class="cor-data">02/08/2022</td>
+              <td class="cor-valor-orcado">R$ 55.000,00</td>
+              <td>
+                ...
+                <img src="./images/edit.png" alt="Ícone Editar" class="edit">
+              </td>
+              <td></td>
+              <td><img src="./images/circle-x.png" alt="Ícone de Sucesso" class="action"></td>
+            </tr>
+            <tr>
+              <td scope="row" class="cor-5">Asfaltamento</td>
+              <td class="cor-data">02/08/2022</td>
+              <td class="cor-valor-orcado">R$ 55.000,00</td>
+              <td>
+                ...
+                <img src="./images/edit.png" alt="Ícone Editar" class="edit">
+              </td>
+              <td></td>
+              <td><img src="./images/circle-x.png" alt="Ícone de Sucesso" class="action"></td>
+            </tr>
+            <tr>
+              <td scope="row" class="cor-5">Asfaltamento</td>
+              <td class="cor-data">02/08/2022</td>
+              <td class="cor-valor-orcado">R$ 55.000,00</td>
+              <td>
+                ...
+                <img src="./images/edit.png" alt="Ícone Editar" class="edit">
+              </td>
+              <td></td>
+              <td><img src="./images/circle-x.png" alt="Ícone de Sucesso" class="action"></td>
+            </tr>
+            <tr>
+              <td scope="row" class="cor-5">Asfaltamento</td>
+              <td class="cor-data">02/08/2022</td>
+              <td class="cor-valor-orcado">R$ 55.000,00</td>
+              <td>
+                ...
+                <img src="./images/edit.png" alt="Ícone Editar" class="edit">
+              </td>
+              <td></td>
+              <td><img src="./images/circle-x.png" alt="Ícone de Sucesso" class="action"></td>
+            </tr>
+            <tr>
+              <td scope="row" class="cor-5">Asfaltamento</td>
+              <td class="cor-data">02/08/2022</td>
+              <td class="cor-valor-orcado">R$ 55.000,00</td>
+              <td>
+                ...
+                <img src="./images/edit.png" alt="Ícone Editar" class="edit">
+              </td>
+              <td></td>
+              <td><img src="./images/circle-x.png" alt="Ícone de Sucesso" class="action"></td>
+            </tr>
+            <tr>
+              <td scope="row" class="cor-5">Asfaltamento</td>
+              <td class="cor-data">02/08/2022</td>
+              <td class="cor-valor-orcado">R$ 55.000,00</td>
+              <td>
+                ...
+                <img src="./images/edit.png" alt="Ícone Editar" class="edit">
+              </td>
+              <td></td>
+              <td><img src="./images/circle-x.png" alt="Ícone de Sucesso" class="action"></td>
+            </tr>
+            <tr>
+              <td scope="row" class="cor-5">Asfaltamento</td>
+              <td class="cor-data">02/08/2022</td>
+              <td class="cor-valor-orcado">R$ 55.000,00</td>
+              <td>
+                ...
+                <img src="./images/edit.png" alt="Ícone Editar" class="edit">
+              </td>
+              <td></td>
+              <td><img src="./images/circle-x.png" alt="Ícone de Sucesso" class="action"></td>
+            </tr>
+            <tr>
+              <td scope="row" class="cor-5">Asfaltamento</td>
+              <td class="cor-data">02/08/2022</td>
+              <td class="cor-valor-orcado">R$ 55.000,00</td>
+              <td>
+                ...
+                <img src="./images/edit.png" alt="Ícone Editar" class="edit">
+              </td>
+              <td></td>
+              <td><img src="./images/circle-x.png" alt="Ícone de Sucesso" class="action"></td>
+            </tr>
+            <tr>
+              <td scope="row" class="cor-5">Asfaltamento</td>
+              <td class="cor-data">02/08/2022</td>
+              <td class="cor-valor-orcado">R$ 55.000,00</td>
+              <td>
+                ...
+                <img src="./images/edit.png" alt="Ícone Editar" class="edit">
+              </td>
+              <td></td>
+              <td><img src="./images/circle-x.png" alt="Ícone de Sucesso" class="action"></td>
+            </tr>
+            <tr>
+              <td scope="row" class="cor-5">Asfaltamento</td>
+              <td class="cor-data">02/08/2022</td>
+              <td class="cor-valor-orcado">R$ 55.000,00</td>
+              <td>
+                ...
+                <img src="./images/edit.png" alt="Ícone Editar" class="edit">
+              </td>
+              <td></td>
+              <td><img src="./images/circle-x.png" alt="Ícone de Sucesso" class="action"></td>
+            </tr>
+            <tr>
+              <td scope="row" class="cor-5">Asfaltamento</td>
+              <td class="cor-data">02/08/2022</td>
+              <td class="cor-valor-orcado">R$ 55.000,00</td>
+              <td>
+                ...
+                <img src="./images/edit.png" alt="Ícone Editar" class="edit">
+              </td>
+              <td></td>
+              <td><img src="./images/circle-x.png" alt="Ícone de Sucesso" class="action"></td>
+            </tr>
+            <tr>
+              <td scope="row" class="cor-5">Asfaltamento</td>
+              <td class="cor-data">02/08/2022</td>
+              <td class="cor-valor-orcado">R$ 55.000,00</td>
+              <td>
+                ...
+                <img src="./images/edit.png" alt="Ícone Editar" class="edit">
+              </td>
+              <td></td>
+              <td><img src="./images/circle-x.png" alt="Ícone de Sucesso" class="action"></td>
+            </tr>
+            <tr>
+              <td scope="row" class="cor-5">Asfaltamento</td>
+              <td class="cor-data">02/08/2022</td>
+              <td class="cor-valor-orcado">R$ 55.000,00</td>
+              <td>
+                ...
+                <img src="./images/edit.png" alt="Ícone Editar" class="edit">
+              </td>
+              <td></td>
+              <td><img src="./images/circle-x.png" alt="Ícone de Sucesso" class="action"></td>
+            </tr>
+            <tr>
+              <td scope="row" class="cor-5">Asfaltamento</td>
+              <td class="cor-data">02/08/2022</td>
+              <td class="cor-valor-orcado">R$ 55.000,00</td>
+              <td>
+                ...
+                <img src="./images/edit.png" alt="Ícone Editar" class="edit">
+              </td>
+              <td></td>
+              <td><img src="./images/circle-x.png" alt="Ícone de Sucesso" class="action"></td>
+            </tr>
+            <tr>
+              <td scope="row" class="cor-5">Asfaltamento</td>
+              <td class="cor-data">02/08/2022</td>
+              <td class="cor-valor-orcado">R$ 55.000,00</td>
+              <td>
+                ...
+                <img src="./images/edit.png" alt="Ícone Editar" class="edit">
+              </td>
+              <td></td>
+              <td><img src="./images/circle-x.png" alt="Ícone de Sucesso" class="action"></td>
+            </tr>
+            <tr>
+              <td scope="row" class="cor-5">Asfaltamento</td>
+              <td class="cor-data">02/08/2022</td>
+              <td class="cor-valor-orcado">R$ 55.000,00</td>
+              <td>
+                ...
+                <img src="./images/edit.png" alt="Ícone Editar" class="edit">
+              </td>
+              <td></td>
+              <td><img src="./images/circle-x.png" alt="Ícone de Sucesso" class="action"></td>
+            </tr>
+          </tbody>
+          <tfoot class="tfoot-customizada">
+            <tr>
+              <td scope="row" colspan="3">Total Realizado</td>
+              <td colspan="3" class="cor-foot">
+                R$ 210.363,00
+              </td>
+            </tr>
+            <tr>
+              <td scope="row" colspan="3"></td>
+              <td colspan="3" class="p-3"></td>
+            </tr>
+            <tr>
+              <td scope="row" colspan="3">Total Orçado</td>
+              <td colspan="3" class="cor-foot">R$ 209.886,00</td>
+            </tr>
+            <tr>
+              <td scope="row" colspan="3">Diferença Orçado x Realizado</td>
+              <td colspan="3" class="cor-foot-2">R$ 477,00</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </main>
+  <!-- Fim Tabela -->
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container" id="footer-container">
+      <!-- Texto Rodapé -->
+      <h3 class="text-footer">ON CONDO</h3>
+
+      <!-- Logo Rodapé -->
+      <img src="images/logo_transparente.webp" alt="Logo On Condo" class="logo-footer">
+    </div>
+  </footer>
+  <!-- Fim Rodapé -->
+
+  <!-- Jquery 3.5.1 -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <!-- Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <!-- Bootstrap 4.5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+
+  <script src="js/script.js"></script>
+  <script src="js/lancamentos.js"></script>
+
+</body>
+</html>
