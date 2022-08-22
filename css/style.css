@@ -138,9 +138,9 @@ a.bloco:hover {
   text-align: left;
   margin: 0;
 
-  -webkit-border-radius: 25px;
-  -moz-border-radius: 25px;
-  border-radius: 25px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
 }
 
 .tabela-customizada.active-tabela-fake {
